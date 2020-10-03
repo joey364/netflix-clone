@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import Youtube from "react-youtube";
-import movieTrailer from "movie-trailer";
+// import movieTrailer from "movie-trailer";
 import "./Row.css";
 import requests from "./requests";
 
@@ -34,32 +34,28 @@ function Row({ title, fetchUrl, isLargeRow }) {
   // };
 
   const clickHandler = async (movie) => {
-    let movieTrailerRequest = await axios
-      .get(requests.fetchMovieTrailer.replace(/id/, `${movie?.id}`))
-      .then((response) => {
-        setTrailerUrl(response.data.results[0].key);
-      })
-      .catch((error) => console.log(error));
+    let movieTrailer;
+    let seriesTrailer;
 
     let seriesTrailerRequest = await axios
       .get(requests.fetchSeriesTrailer.replace(/id/, `${movie?.id}`))
       .then((response) => {
-        if (
-          response.data.results[0]?.name
-            .toLowerCase()
-            .includes(movie?.name.toLowerCase()) ||
-          response.data.results[0]?.name
-            .toLowerCase()
-            .includes(movie?.title.toLowerCase()) ||
-          response.data.results[0]?.name
-            .toLowerCase()
-            .includes(movie?.original_name.toLowerCase())
-        ) {
-          setTrailerUrl(response.data.results[0].key);
-        }
+          seriesTrailer = response.data.results[0].key;
+          setTrailerUrl(seriesTrailer);
       })
       .catch((error) => console.log(error));
-    console.log(movieTrailerRequest, seriesTrailerRequest);
+
+    if (!seriesTrailer) {
+      let movieTrailerRequest = await axios
+        .get(requests.fetchMovieTrailer.replace(/id/, `${movie?.id}`))
+        .then((response) => {
+          movieTrailer = response.data.results[0].key;
+          setTrailerUrl(movieTrailer);
+        })
+        .catch((error) => console.log(error));
+
+      console.log(movieTrailerRequest, seriesTrailerRequest);
+    }
 
     if (trailerUrl) {
       setTrailerUrl("");
