@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  background-color: #111;
+}
+
+@media only screen and (max-width: 600px) {
+  .app {
+    width: fit-content;
+  }
+}

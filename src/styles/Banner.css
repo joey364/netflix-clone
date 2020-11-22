@@ -48,7 +48,15 @@
     transition: all 0.2s;
 }
 
+header{
+    position:relative;
+}
+
 .banner--fadeBottom{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
     height: 7.4rem;
     background-image: linear-gradient(
         180deg,

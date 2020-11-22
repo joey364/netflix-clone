@@ -3,10 +3,11 @@
     top: 0;
     display: flex;
     z-index: 1;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 20px;
-    height: 25px;
+    padding: 25px;
+    height: 40px;
     
     transition-timing-function: ease-in;
     transition: all 0.55s;
@@ -28,4 +29,6 @@
     right: 20px;
     width: 30px;
     object-fit: contain;
+    border-radius: 30%;
+    cursor: pointer;
 }

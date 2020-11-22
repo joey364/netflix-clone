@@ -1,0 +1,9 @@
+{
+  "appId": "io.ionic.netflix_clone",
+  "appName": "netflix-clone",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {},
+  "linuxAndroidStudioPath": "/opt/Android Studio/android-studio/bin/studio.sh"
+}

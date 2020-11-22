@@ -1,0 +1,7 @@
+{
+  "name": "netflix_clone",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

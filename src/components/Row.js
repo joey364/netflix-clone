@@ -1,16 +1,25 @@
-import React, { useState, useEffect } from "react";
-import axios from "./axios";
-import Youtube from "react-youtube";
+import React, { useState, useEffect } from 'react';
+import axios from '../utils/axios';
+import Youtube from 'react-youtube';
 // import movieTrailer from "movie-trailer";
-import "./Row.css";
-import requests from "./requests";
+import '../styles/Row.css';
+import requests from '../utils/requests';
 
-const iamgeBaseUrl = "https://image.tmdb.org/t/p/original/";
+const iamgeBaseUrl = 'https://image.tmdb.org/t/p/original/';
+
+const shuffle = function (array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+};
 
 function Row({ title, fetchUrl, isLargeRow }) {
   const opts = {
-    height: "390",
-    width: "100%",
+    height: '390',
+    width: '100%',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
@@ -18,7 +27,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
   };
 
   const [movies, setMovies] = useState([]);
-  const [trailerUrl, setTrailerUrl] = useState("");
+  const [trailerUrl, setTrailerUrl] = useState('');
 
   // const handleClick = (movie) => {
   //   if (trailerUrl) {
@@ -37,35 +46,37 @@ function Row({ title, fetchUrl, isLargeRow }) {
     let movieTrailer;
     let seriesTrailer;
 
-    let seriesTrailerRequest = await axios
+    //Series Trailer Request
+    await axios
       .get(requests.fetchSeriesTrailer.replace(/id/, `${movie?.id}`))
       .then((response) => {
-          seriesTrailer = response.data.results[0].key;
-          setTrailerUrl(seriesTrailer);
+        let seriesTrailer = response.data.results[0].key;
+        !response ? setTrailerUrl('') : setTrailerUrl(seriesTrailer);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error.message));
 
+    //Movie Trailer Request
     if (!seriesTrailer) {
-      let movieTrailerRequest = await axios
+      await axios
         .get(requests.fetchMovieTrailer.replace(/id/, `${movie?.id}`))
         .then((response) => {
           movieTrailer = response.data.results[0].key;
           setTrailerUrl(movieTrailer);
         })
         .catch((error) => console.log(error));
-
-      console.log(movieTrailerRequest, seriesTrailerRequest);
     }
 
     if (trailerUrl) {
-      setTrailerUrl("");
+      setTrailerUrl('');
     }
   };
 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
-      setMovies(request.data.results);
+      const result = request.data.results;
+      shuffle(result);
+      setMovies(result);
       return request;
     }
     fetchData();
@@ -77,9 +88,10 @@ function Row({ title, fetchUrl, isLargeRow }) {
       <div className="row__posters">
         {movies.map((movie) => (
           <img
+            className="movie__poster"
             onClick={() => clickHandler(movie)}
             key={movie.id}
-            className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+            className={`row__poster ${isLargeRow && 'row__posterLarge'}`}
             src={`${iamgeBaseUrl}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
             }`}
