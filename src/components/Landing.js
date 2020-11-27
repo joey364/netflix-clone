@@ -33,8 +33,13 @@ function Landing() {
               placeholder="Email address..."
               type="text"
             />
-            <button className="landing__get-started">
-              <span>GET STARTED </span>
+            <button
+              className="landing__get-started"
+              onClick={() => {
+                signInWithGoogle()
+              }}
+            >
+              <span>GET STARTED  </span>
             </button>
           </div>
         </section>

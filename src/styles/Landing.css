@@ -8,11 +8,7 @@
   min-height: 100vh;
   background: rgba(185, 176, 176, 0.4);
   background-image: 
-  /* linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.52),
-      rgba(29, 28, 29, 0.73)
-    ), */ linear-gradient(
+ linear-gradient(
       to top,
       rgba(0, 0, 0, 0.9) 0,
       rgba(0, 0, 0, 0.3) 60%,
@@ -122,101 +118,31 @@ main {
   font-size: 1rem;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 320px) and (max-width: 425px) {
   .landing__logo {
-    width: 30%;
+    width: 35%;
   }
 
   .landing__button {
-    width: 20%;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .landing__logo {
-    width: 30%;
-  }
-  .landing__button {
-    width: 20%;
-    padding-right: 10px;
+    width: 80%;
+    padding: 5px 10px;
   }
 
-  .landing__message {
+  .landing__message{
     width: 60%;
-  }
-
-  .landing__button-bar {
-    flex-direction: column;
-  }
-
-  .landing__email {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  .landing__get-started {
-    font-size: 1.3rem;
-  }
-}
-
-/* @media only screen and (max-width: 1200px) {
-  #big-text {
-    font-size: 3rem;
-  }
-
-  #small-text {
-    font-size: 1.3rem;
-  }
-  .smaller-text {
-    font-size: 1rem;
-  }
-  .landing__logo {
-    width: 20%;
-    transition: all 0.1s ease-in-out;
-  }
-
-  .landing__button {
-    width: 10%;
-    padding: 7px 10px;
-  }
-}
-
-@media only screen and (max-width: 992px) {
-  .landing__logo {
-    width: 25%;
-    transition: all 0.1s ease-in-out;
-  }
-  .landing__button {
-    width: 25%;
-    padding: 7px 10px;
+    margin-left: 15px;
   }
 
   #big-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   #small-text {
     font-size: 1.2rem;
   }
-  .smaller-text {
+
+  #smaller-text {
     font-size: 1rem;
-  }
-
-}
-
-@media only screen and (max-width: 600px) {
-  #big-text {
-    font-size: 2.5rem;
-  }
-
-  #small-text {
-    font-size: 1.1rem;
-  }
-  .smaller-text {
-    font-size: 1rem;
-  }
-  .landing__logo {
-    width: 30%;
-    transition: all 0.1s ease-in-out;
   }
 
   .landing__button-bar {
@@ -226,39 +152,41 @@ main {
   .landing__get-started,
   .landing__email {
     font-size: 1rem;
-    height: max-content;
-  }
-  .landing__get-started {
-    margin-top: 10px;
+    height: min-content;
   }
 
-  .landing__email {
+  .landing__get-started {
     width: 60%;
+    font-size: 0.75rem;
+    margin-top: 10px;
   }
 
-  .landing__button {
-    width: 25%;
+  .landing__email {
+    width: 100%;
     padding: 7px 10px;
   }
 }
 
-@media only screen and (min-width: 300px) {
-  .landing__message {
-    width: 80%;
+@media only screen and (min-width: 430px) and (max-width: 768px) {
+  .landing__logo {
+    width: 20%;
   }
+
+  .landing__button {
+    width: 20%;
+    padding: 5px 10px;
+  }
+
   #big-text {
-    font-size: 2.5rem;
+    font-size: 3.3rem;
   }
 
   #small-text {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
-  .smaller-text {
-    font-size: 1rem;
-  }
-  .landing__logo {
-    width: 43%;
-    transition: all 0.1s ease-in-out;
+
+  #smaller-text {
+    font-size: 1.3rem;
   }
 
   .landing__button-bar {
@@ -267,50 +195,62 @@ main {
 
   .landing__get-started,
   .landing__email {
-    font-size: 1rem;
-    height: max-content;
+    font-size: 2rem;
+    height: min-content;
   }
+
   .landing__get-started {
+    width: 60%;
+    font-size: 0.75rem;
     margin-top: 10px;
   }
 
   .landing__email {
-    width: 90%;
+    width: 100%;
+    padding: 7px 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .landing__logo {
+    width: 25%;
   }
 
   .landing__button {
-    width: 75%;
-    padding: 7px 10px;
-    font-size: 1rem;
+    width: 20%;
+    padding: 5px 10px;
   }
-} */
 
-.ing {
-  background-image: url('../assets/netflix-landing.jpg');
-  background-image: -webkit-image-set(
-    url('https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_small.jpg')
-      1000w,
-    url('https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_medium.jpg')
-      1500w,
-    url('https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_large.jpg')
-      1800w
-  );
-  background-image: image-set(
-    url('https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_small.jpg')
-      1000w,
-    url('https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_medium.jpg')
-      1500w,
-    url('https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_large.jpg')
-      1800w
-  );
+  #big-text {
+    font-size: 3.9rem;
+  }
+
+  #small-text {
+    font-size: 1.4rem;
+  }
+
+  #smaller-text {
+    font-size: 1.2rem;
+  }
+
+  /* .landing__button-bar{
+    flex-direction: column;
+  } */
+
+  .landing__get-started,
+  .landing__email {
+    font-size: 1rem;
+    height: min-content;
+  }
+
+  .landing__get-started {
+    width: 60%;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  .landing__email {
+    width: 100%;
+    padding: 7px 10px;
+  }
 }
-
-/* 
-background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
-    linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
-
-*/
-
-/* 
-  <img class="concord-img vlv-creative" src="https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_small.jpg" srcset="https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/84b453b4-0d46-4f2c-bd44-81aa6c19c6b5/0bd58a40-629e-4e9d-9e1c-d30148cf97f2/GH-en-20201116-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w" alt="">
-*/

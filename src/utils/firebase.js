@@ -15,10 +15,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-
-export const signInWithGoogle = async() => {
+export const signInWithGoogle = async () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   await auth.signInWithPopup(provider);
 };
 
-export const signOut = async() => await auth.signOut();
+export const signOut = async () => await auth.signOut();

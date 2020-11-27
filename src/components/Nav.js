@@ -8,19 +8,11 @@ function Nav() {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        handleShow(true);
-      } else {
-        handleShow(false);
-      }
+      window.scrollY > 100 ? handleShow(true) : handleShow(false);
     });
     return () => {
       window.removeEventListener('scroll', () => {
-        if (window.scrollY < 100) {
-          handleShow(false);
-        } else {
-          handleShow(true);
-        }
+        window.scrollY < 100 ? handleShow(false) : handleShow(true);
       });
     };
   }, []);
@@ -28,17 +20,31 @@ function Nav() {
     <div className={`nav ${show && 'nav__black'}`}>
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/255px-Netflix_2015_logo.svg.png"
-        alt="Netflix logo"
+        alt="logo"
         className="nav__logo"
       />
-      <img id={"tooltip"}
+      <div className="dropdown" style={{ float: 'right' }}>
+        <img
+          src="
+       https://lh3.googleusercontent.com/ogw/ADGmqu8lSzgrVkMbbdk8_mmqslEyOvIVbGTdCdNfYawi=s83-c-mo 
+        "
+          alt=""
+          className="dropdown__avatar"
+        />
+        <div className="dropdown-content">
+          <a href="#" onClick={() => signOut()}>
+            Sign out
+          </a>
+        </div>
+      </div>
+      {/* <img
         src="https://lh3.googleusercontent.com/ogw/ADGmqu8lSzgrVkMbbdk8_mmqslEyOvIVbGTdCdNfYawi=s83-c-mo"
-        alt="User Avatar"
+        alt=""
         className="nav__avatar"
         onClick={() => {
           signOut();
         }}
-      />
+      /> */}
     </div>
   );
 }

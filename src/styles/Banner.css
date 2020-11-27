@@ -1,13 +1,13 @@
 .banner{
     color: white;
     object-fit: contain;
-    height: 448px;
+    height: 548px;
     width: 100%;
 }
 
 .banner__contents{
     margin-left: 30px;
-    padding-top: 140px;
+    padding-top: 200px;
     height: 190px;
 }
 
@@ -64,4 +64,15 @@ header{
         rgba(37,37,37,0.61),
         #111
     );
+}
+
+@media only screen and (max-width: 600px){
+    .banner{
+        background-position: center center;
+        height: 448px;
+    }
+
+    .banner__contents{
+        padding-top: 140px;
+    }
 }
