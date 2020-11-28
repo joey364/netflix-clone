@@ -39,7 +39,7 @@ function Landing() {
                 signInWithGoogle()
               }}
             >
-              <span>GET STARTED  </span>
+              <span>GET STARTED </span>
             </button>
           </div>
         </section>
