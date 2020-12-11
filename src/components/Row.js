@@ -50,8 +50,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
     await axios
       .get(requests.fetchSeriesTrailer.replace(/id/, `${movie?.id}`))
       .then((response) => {
-        let seriesTrailer = response.data.results[0].key;
-        !response ? setTrailerUrl('') : setTrailerUrl(seriesTrailer);
+        seriesTrailer = response.data.results[0].key;
+        setTrailerUrl(seriesTrailer);
       })
       .catch((error) => console.log(error.message));
 
