@@ -91,6 +91,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
             className="movie__poster"
             onClick={() => clickHandler(movie)}
             key={movie.id}
+            // eslint-disable-next-line react/jsx-no-duplicate-props
             className={`row__poster ${isLargeRow && 'row__posterLarge'}`}
             src={`${iamgeBaseUrl}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
