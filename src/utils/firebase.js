@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+// * Firebase App Config
 const firebaseConfig = {
   apiKey: 'AIzaSyDlUfvK2q51wfpn7bIL2TF14rf5ZxDbRfQ',
   authDomain: 'netflix-clone-4caa6.firebaseapp.com',
@@ -15,6 +16,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
+// * Authentication helpers
 export const signInWithGoogle = async () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   await auth.signInWithPopup(provider);

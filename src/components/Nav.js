@@ -6,14 +6,15 @@ import { signOut } from '../utils/firebase';
 function Nav() {
   const [show, handleShow] = useState(false);
 
+  // * Checks the condition for navbar fade
+  const transitionNavBar = () => {
+    window.scrollY > 100 ? handleShow(true) : handleShow(false);
+  };
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      window.scrollY > 100 ? handleShow(true) : handleShow(false);
-    });
+    window.addEventListener('scroll', transitionNavBar);
     return () => {
-      window.removeEventListener('scroll', () => {
-        window.scrollY < 100 ? handleShow(false) : handleShow(true);
-      });
+      window.removeEventListener('scroll', transitionNavBar);
     };
   }, []);
   return (
@@ -37,14 +38,6 @@ function Nav() {
           </a>
         </div>
       </div>
-      {/* <img
-        src="https://lh3.googleusercontent.com/ogw/ADGmqu8lSzgrVkMbbdk8_mmqslEyOvIVbGTdCdNfYawi=s83-c-mo"
-        alt=""
-        className="nav__avatar"
-        onClick={() => {
-          signOut();
-        }}
-      /> */}
     </div>
   );
 }

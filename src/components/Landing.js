@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Landing.css';
 
-import { signInWithGoogle } from '../utils/firebase';
+import { signInWithGoogle } from '../utils/firebase'; 
 
 function Landing() {
   return (

@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from '../utils/axios';
 import requests from '../utils/requests';
 import Youtube from 'react-youtube';
-import '../styles/Banner.css'
+import '../styles/Banner.css';
 
 function Banner() {
   const [movie, setMovie] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
 
+  // * YouTube player embed options
   const opts = {
     height: '390',
     width: '100%',
@@ -17,6 +18,7 @@ function Banner() {
     },
   };
 
+  // * Returns the YouTube key from the TMDB video api 
   const getTrailer = async (movie) => {
     await axios
       .get(requests.fetchSeriesTrailer.replace(/id/, `${movie?.id}`))
@@ -25,10 +27,8 @@ function Banner() {
         setTrailerUrl(movieTrailer);
       })
       .catch((error) => console.log(error));
-
   };
 
-  // const imageBaseUrl = 'https://image.tmdb.org/t/p/original/';
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
@@ -42,6 +42,7 @@ function Banner() {
     fetchData();
   }, []);
 
+  // * Truncates the movie overview returned from the api call
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + '...' : str;
   }
@@ -57,7 +58,7 @@ function Banner() {
         className="banner"
         style={{
           backgroundSize: 'cover',
-          backgroundRepeat:'no-repeat',
+          backgroundRepeat: 'no-repeat',
           backgroundImage: `url(
                     "https://image.tmdb.org/t/p/original/${movie?.backdrop_path}"
                     )`,
@@ -89,7 +90,7 @@ function Banner() {
             </h1>
           </div>
         </div>
-        <div className="banner--fadeBottom"></div>
+        <div className="banner--fade-bottom"></div>
       </header>
       {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
     </>
